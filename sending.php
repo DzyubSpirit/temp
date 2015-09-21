@@ -20,17 +20,18 @@
 <body>
   <?php
     // echo '<pre>';
-    // var_dump($_FILES);
+    // var_dump($_FILES['fileFF']['tmp_name']);
     // echo '</pre>';
     $files_contents = [];
     for ($i = 0; $i < count($_FILES['fileFF']['tmp_name']); $i++) {
       $filename = $_FILES['fileFF']['tmp_name'][$i];
       // echo "$filename\n";
-      $files_contents[] = file_get_contents($filename);
+      if ($filename != '') 
+	      $files_contents[] = file_get_contents($filename);
     }
     // var_dump($files_contents);
     // var_dump($files_contents);
-    echo('<p class="hidden" id="post">'.serialize($_POST).'</p>');
+    echo('<p class="hidden" id="post">'.htmlspecialchars(serialize($_POST)).'</p>');
     echo('<p class="hidden" id="files">'.serialize($_FILES['fileFF']).'</p>');
     if ($_FILES['toMany']['tmp_name'] != "") {
       $filenames = file_get_contents($_FILES['toMany']['tmp_name']);

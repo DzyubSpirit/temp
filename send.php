@@ -1,7 +1,7 @@
 <?php
 
 if (isset ($_POST['post'])) {
-  $post = unserialize($_POST['post']);
+  $post = unserialize(htmlspecialchars_decode($_POST['post']));
   $files = unserialize($_POST['files']);
   // var_dump($_POST['files_contents']);
   $files_contents = unserialize(base64_decode($_POST['files_contents']));
