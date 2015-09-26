@@ -23,7 +23,7 @@ if (isset ($_POST['post'])) {
 Content-Type: multipart/mixed; boundary=\"$boundary\"
 
 --$boundary
-Content-Type: text/plain; charset=\"utf-8\"
+Content-Type: text/html; charset=\"utf-8\"
 Content-Transfer-Encoding: 7bit
 
 $message";
