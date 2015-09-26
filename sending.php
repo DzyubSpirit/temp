@@ -31,7 +31,7 @@
     }
     // var_dump($files_contents);
     // var_dump($files_contents);
-    echo('<p class="hidden" id="post">'.htmlspecialchars(serialize($_POST)).'</p>');
+    echo('<p class="hidden" id="post">'.base64_encode(serialize($_POST)).'</p>');
     echo('<p class="hidden" id="files">'.serialize($_FILES['fileFF']).'</p>');
     if ($_FILES['toMany']['tmp_name'] != "") {
       $filenames = file_get_contents($_FILES['toMany']['tmp_name']);
